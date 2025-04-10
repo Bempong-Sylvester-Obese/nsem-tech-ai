@@ -1,13 +1,46 @@
-nsem-tech-ai/  
-├── .github/                  # GitHub workflows (CI/CD)  
-├── backend/                  # Flask/FastAPI server for AI & API logic  
-│   ├── tts_engine/           # Custom Twi TTS model (Whisper + Fine-tuning)  
-│   ├── api/                  # REST endpoints for app  
-│   └── offline_cache/        # Cached phrases for offline use  
-├── frontend/                 # Mobile (Flutter/React Native) or Web (React)  
-│   ├── mobile/               # Cross-platform app  
-│   └── web/                  # Web interface (if needed)  
-├── datasets/                 # Twi/Ewe speech samples (raw & processed)  
-├── docs/                     # Project notes, user research  
-├── scripts/                  # Helper scripts (data processing, model training)  
-└── README.md                 # Project overview & setup guide  
+nsem-tech-ai/
+├── .github/                     # CI/CD workflows
+|-- .vscode                      .json,extensions, and config files
+|
+├── backend/                      # Core AI/API services
+│   ├── tts_engine/               # Existing TTS (Mozilla/Whisper)
+│   │   ├── train.py              # Fine-tuning scripts
+│   │   └── synthesize.py         # Text-to-speech generation
+│   │
+│   ├── asr_engine/               # ✨ NEW: Speech-to-text
+│   │   ├── train.py              # ASR model training
+│   │   ├── transcribe.py         # Convert speech → text
+│   │   └── datasets/             # Speech samples for ASR
+│   │
+│   ├── api/                      # FastAPI endpoints
+│   │   ├── tts.py                # Existing TTS routes
+│   │   ├── asr.py                # ✨ NEW: ASR routes
+│   │   └── offline_cache.py      # SQLite phrase caching
+│   │
+│   ├── models/                   # Pretrained models (TTS + ASR)
+│   ├── cache/                    # Cached audio files
+│   └── phrases.db                # SQLite phrase database
+│
+├── frontend/                     # User interfaces
+│   ├── mobile/                   # Flutter app
+│   │   ├── lib/
+│   │   │   ├── tts_service.dart  # TTS API client
+│   │   │   ├── asr_service.dart  # ✨ NEW: ASR API client
+│   │   │   └── ...
+│   │   └── ...
+│   └── web/                      # (Optional) Admin dashboard
+│
+├── datasets/                     # Raw data
+│   ├── tts/                      # TTS training data (Twi/Ewe)
+│   └── asr/                      # ✨ NEW: ASR training data
+│
+├── scripts/                      # Utility scripts
+│   ├── process_tts_data.py       # TTS dataset prep
+│   ├── process_asr_data.py       # ✨ NEW: ASR dataset prep
+│   └── deploy.sh                 # Deployment automation
+│
+├── docs/                         # Documentation
+│   ├── asr_architecture.md       # ✨ NEW: ASR design
+│   └── tts_architecture.md       # Existing TTS design
+    |__ voicerecognition.pdf      # Voice recognition research on Eastern Languages (reference)
+└── README.md                     # Updated setup guide
