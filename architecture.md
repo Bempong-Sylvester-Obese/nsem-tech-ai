@@ -8,6 +8,7 @@ nsem-tech-ai/
 │   │   └── synthesize.py         # Text-to-speech generation
 │   │
 │   ├── asr_engine/               # ✨ NEW: Speech-to-text
+        |__preprocess.py          #Dataset Preprocessing  
 │   │   ├── train.py              # ASR model training
 │   │   ├── transcribe.py         # Convert speech → text
 │   │   └── datasets/             # Speech samples for ASR
