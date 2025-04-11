@@ -22,3 +22,7 @@ jobs:
         working-directory: ./backend
         run: |
           pytest -v
+
+          # In python-ci.yml
+- name: Test Twi TTS
+  run: python -c "from gtts import gTTS; tts = gTTS('Maakye', lang='en', tld='com.gh'); tts.save('test.mp3')"
